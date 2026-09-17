@@ -1,3 +1,7 @@
+# Step by Step! V5.1
+
+Fixes: single Past 7 days view (includes today), compact custom range inputs, hardened badge rendering, grey locked/colour unlocked badge book, corrected measurement chart grid, and approved mood PNGs.
+
 # Step by Step! with Saucisse — V4 Draft
 
 This draft consolidates the latest agreed changes.
