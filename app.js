@@ -181,7 +181,8 @@ function renderMeasureBars(el,items,key){
    el.classList.add("empty-chart");
    let title=key==="weight"?(lang()==="fr"?"Aucune donnée de poids":"No weight data yet"):(lang()==="fr"?"Aucune donnée de tour de taille":"No waist data yet");
    let copy=lang()==="fr"?"Ajoutez une mesure pour commencer à suivre votre évolution.":"Add a measurement to start tracking your progress.";
-   el.innerHTML=`<div class="measurement-empty"><img src="saucisse-scale.png" alt=""><strong>${title}</strong><span>${copy}</span></div>`;
+   const emptyImg=key==="waist"?"saucisse-curious-waist.png":"saucisse-scale.png";
+   el.innerHTML=`<div class="measurement-empty"><img src="${emptyImg}" alt=""><strong>${title}</strong><span>${copy}</span></div>`;
    return
  }
  el.classList.remove("empty-chart");
