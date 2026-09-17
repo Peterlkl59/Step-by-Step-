@@ -39,7 +39,7 @@ const BADGES=[
 {id:"keeping-track",name:"Keeping Track",cat:"progress",test:()=>measurementDates()>=5,img:"badge-keeping-track.png"},
 {id:"halfway-there",name:"Halfway There",cat:"progress",test:()=>halfwayToGoal(),img:"badge-halfway-there.png"},
 {id:"goal-getter",name:"Goal Getter",cat:"progress",test:()=>goalReached(),img:"badge-goal-getter.png"},
-{id:"step-by-step",name:"Step by Step!",cat:"progress",test:()=>BADGES.slice(0,19).every(b=>b.test()),img:"badge-step-by-step.png"}
+{id:"step-by-step",name:"Step by Step!",cat:"progress",test:()=>BADGES.slice(0,19).every(b=>safeBadgeTest(b)),img:"badge-step-by-step.png"}
 ];
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -123,11 +123,11 @@ function renderHomeGauges(tt,calT,proT){
  $("#proteinGaugeNote").textContent=proMet?(lang()==="fr"?"Objectif protéines atteint":"Protein target reached"):(lang()==="fr"?`${Math.max(0,Math.round(proT-pro))} g restants`:`${Math.max(0,Math.round(proT-pro))} g to go`);
 }
 function mascotState(cal,pro,calT,proT){
- if(!foodItems(selectedDate).length)return {img:"saucisse-wave.png",title:lang()==="fr"?"Prêt ?":"Ready when you are!",copy:lang()==="fr"?"Ajoutez votre premier repas de la journée.":"Add your first meal of the day."};
+ if(!foodItems(selectedDate).length)return {img:"curious.png",title:lang()==="fr"?"Prêt ?":"Ready when you are!",copy:lang()==="fr"?"Ajoutez votre premier repas de la journée.":"Add your first meal of the day."};
  let cr=cal/calT,pr=pro/proT;
- if(cr>=.9&&cr<=1.1&&pr>=.9)return {img:"saucisse-celebrate.png",title:lang()==="fr"?"Super journée !":"You're on track!",copy:lang()==="fr"?"Tes apports sont proches de tes objectifs.":"Your intake is sitting nicely around your targets."};
- if(cr<.75||cr>1.25||pr<.65)return {img:"saucisse-rest.png",title:lang()==="fr"?"On ajuste doucement.":"A little reset helps.",copy:lang()==="fr"?"Pas de stress. Regarde la tendance et avance pas à pas.":"No stress. Look at the trend and keep going step by step."};
- return {img:"saucisse-proud.png",title:lang()==="fr"?"Presque !":"Nearly there!",copy:lang()==="fr"?"Quelques petits ajustements et tu seras proche de la cible.":"A few small adjustments will bring you closer to target."}
+ if(cr>=.9&&cr<=1.1&&pr>=.9)return {img:"excited.png",title:lang()==="fr"?"Super journée !":"You're on track!",copy:lang()==="fr"?"Tes apports sont proches de tes objectifs.":"Your intake is sitting nicely around your targets."};
+ if(cr<.75||cr>1.25||pr<.65)return {img:"sad.png",title:lang()==="fr"?"On ajuste doucement.":"A little reset helps.",copy:lang()==="fr"?"Pas de stress. Regarde la tendance et avance pas à pas.":"No stress. Look at the trend and keep going step by step."};
+ return {img:"happy.png",title:lang()==="fr"?"Presque !":"Nearly there!",copy:lang()==="fr"?"Quelques petits ajustements et tu seras proche de la cible.":"A few small adjustments will bring you closer to target."}
 }
 function mealCard(m,i){
  let icons=["breakfast.png","lunch.png","dinner.png","snacks.png","drinks.png"],items=foodItems(selectedDate).filter(x=>x.meal===m),cal=items.reduce((a,x)=>a+(+x.calories||0)*(+x.quantity||1),0),pro=items.reduce((a,x)=>a+(+x.protein||0)*(+x.quantity||1),0);
@@ -143,7 +143,6 @@ function dateRange(start,end){
 function selectedBounds(){
  let today=todayISO();
  if(period==="last7")return [addDays(today,-6),today];
- if(period==="previous7")return [addDays(today,-13),addDays(today,-7)];
  if(period==="custom")return [customStart,customEnd];
  let now=new Date(today+"T12:00:00"),s=new Date(now.getFullYear(),now.getMonth()-11,1),start=`${s.getFullYear()}-${String(s.getMonth()+1).padStart(2,"0")}-01`;
  return [start,today]
@@ -165,7 +164,7 @@ function renderProgress(){
  $$("[data-monthly-note]").forEach(n=>{n.hidden=period!=="month";n.textContent=lang()==="fr"?"ⓘ Les valeurs mensuelles de calories et de protéines correspondent à la moyenne par jour enregistré.":"ⓘ Monthly calorie and protein values show the average per logged day."});
 }
 function monthlyRange(n){let now=new Date(),out=[];for(let i=n-1;i>=0;i--){let d=new Date(now.getFullYear(),now.getMonth()-i,1),y=d.getFullYear(),m=d.getMonth(),key=`${y}-${String(m+1).padStart(2,"0")}`;let ds=loggedDays().filter(x=>x.startsWith(key));let cal=ds.length?ds.reduce((a,x)=>a+totals(x).net,0)/ds.length:0,pro=ds.length?ds.reduce((a,x)=>a+totals(x).pro,0)/ds.length:0;out.push({label:monthLabel(`${y}-${String(m+1).padStart(2,"0")}-01`),cal,pro,hasFood:ds.length>0})}return out}
-function progressState(c,p){if(c==null||p==null)return {img:"saucisse-wave.png",title:"Let's get started!",copy:"Log a few days and Saucisse will help you read the trend."};let ct=+db.settings.calories||2000,pt=+db.settings.protein||160,cr=c/ct,pr=p/pt;if(cr>=.95&&cr<=1.05&&pr>=.95)return {img:"saucisse-celebrate.png",title:lang()==="fr"?"Super période !":"Great period!",copy:lang()==="fr"?"Tes moyennes sont très proches de tes objectifs.":"Your averages are sitting nicely around your targets."};if(cr<.8||cr>1.2||pr<.7)return {img:"saucisse-rest.png",title:lang()==="fr"?"On garde le cap.":"Keep going.",copy:lang()==="fr"?"La tendance est encore loin de la cible, mais chaque période compte.":"The trend is still some way from target, but every period counts."};return {img:"saucisse-proud.png",title:lang()==="fr"?"Presque !":"Nearly there!",copy:lang()==="fr"?"Tu n'es pas loin. Continue pas à pas.":"You're not far off. Keep going step by step."}}
+function progressState(c,p){if(c==null||p==null)return {img:"curious.png",title:"Let's get started!",copy:"Log a few days and Saucisse will help you read the trend."};let ct=+db.settings.calories||2000,pt=+db.settings.protein||160,cr=c/ct,pr=p/pt;if(cr>=.95&&cr<=1.05&&pr>=.95)return {img:"excited.png",title:lang()==="fr"?"Super période !":"Great period!",copy:lang()==="fr"?"Tes moyennes sont très proches de tes objectifs.":"Your averages are sitting nicely around your targets."};if(cr<.8||cr>1.2||pr<.7)return {img:"sad.png",title:lang()==="fr"?"On garde le cap.":"Keep going.",copy:lang()==="fr"?"La tendance est encore loin de la cible, mais chaque période compte.":"The trend is still some way from target, but every period counts."};return {img:"happy.png",title:lang()==="fr"?"Presque !":"Nearly there!",copy:lang()==="fr"?"Tu n'es pas loin. Continue pas à pas.":"You're not far off. Keep going step by step."}}
 function renderBarChart(el,data,key,target,type){
  let max=Math.max(target,...data.filter(x=>x.hasFood).map(x=>x[key]),1)*1.15,isDaily=period!=="month";
  el.classList.toggle("empty-chart",!data.some(x=>x.hasFood));
@@ -217,14 +216,15 @@ function badgeRequirement(id){
  };
  return req[id]||["Keep going to unlock this badge.",()=>0,1]
 }
+function safeBadgeTest(b){try{return !!b.test()}catch(err){console.warn("Badge test failed",b?.id,err);return false}}
 function syncBadgeUnlocks(showCelebration=false){
  db.meta=db.meta||{};db.meta.badgeUnlocks=db.meta.badgeUnlocks||{};
  let newly=[];
- BADGES.forEach(b=>{if(b.test()&&!db.meta.badgeUnlocks[b.id]){db.meta.badgeUnlocks[b.id]=todayISO();newly.push(b)}});
+ BADGES.forEach(b=>{if(safeBadgeTest(b)&&!db.meta.badgeUnlocks[b.id]){db.meta.badgeUnlocks[b.id]=todayISO();newly.push(b)}});
  localStorage.setItem(KEY,JSON.stringify(db));
  if(showCelebration&&newly.length){ /* achievement is shown directly in the badge book */ }
 }
-function isBadgeUnlocked(b){return !!(db.meta?.badgeUnlocks?.[b.id]||b.test())}
+function isBadgeUnlocked(b){return !!(db.meta?.badgeUnlocks?.[b.id]||safeBadgeTest(b))}
 function openBadge(id,celebration=false){
  let b=BADGES.find(x=>x.id===id);if(!b){console.warn("Badge not found",id);return;}let unlocked=isBadgeUnlocked(b),r=badgeRequirement(id),cur=r[1](),goal=r[2]();
  $("#badgeModalName").textContent=b.name;$("#badgeModalImg").src=b.img;
@@ -291,19 +291,25 @@ function badgeCardProgress(id,unlocked){
  return `${cur} / ${goal}`
 }
 function renderBadges(){
- syncBadgeUnlocks(false);
- let unlocked=BADGES.filter(b=>isBadgeUnlocked(b)).length;
- $("#badgeCount").textContent=`${unlocked} / 20 collected`;
- $("#badgeProgress").style.width=`${unlocked/20*100}%`;
- $("#badgeGrid").innerHTML=BADGES.filter(b=>badgeFilter==="all"||b.cat===badgeFilter).map(b=>{
-   let ok=isBadgeUnlocked(b);
-   return `<div class="badge ${ok?"":"locked"}">
-     <div class="badge-art"><img src="${b.img}" alt=""></div>
-     <strong>${b.name}</strong>
-     <p class="badge-description">${badgeShortDescription(b.id,ok)}</p>
-     <small class="${ok?"badge-success":"badge-progress-text"}">${badgeCardProgress(b.id,ok)}</small>
-   </div>`
- }).join("")
+ try{
+  syncBadgeUnlocks(false);
+  let unlocked=BADGES.filter(b=>isBadgeUnlocked(b)).length;
+  $("#badgeCount").textContent=`${unlocked} / 20 collected`;
+  $("#badgeProgress").style.width=`${unlocked/20*100}%`;
+  $("#badgeGrid").innerHTML=BADGES.filter(b=>badgeFilter==="all"||b.cat===badgeFilter).map(b=>{
+    let ok=isBadgeUnlocked(b),desc="",prog="";
+    try{desc=badgeShortDescription(b.id,ok);prog=badgeCardProgress(b.id,ok)}catch(err){console.warn("Badge card failed",b.id,err);desc=ok?"Achievement unlocked":"Keep going";prog=ok?"✓ Unlocked":"Locked"}
+    return `<div class="badge ${ok?"unlocked":"locked"}">
+      <div class="badge-art"><img src="${b.img}" alt="${b.name}" onerror="this.style.display='none'"></div>
+      <strong>${b.name}</strong>
+      <p class="badge-description">${desc}</p>
+      <small class="${ok?"badge-success":"badge-progress-text"}">${prog}</small>
+    </div>`
+  }).join("")
+ }catch(err){
+  console.error("Badge page render failed",err);
+  $("#badgeGrid").innerHTML=BADGES.map(b=>`<div class="badge locked"><div class="badge-art"><img src="${b.img}" alt="${b.name}" onerror="this.style.display='none'"></div><strong>${b.name}</strong><p class="badge-description">Locked</p><small>Locked</small></div>`).join("");
+ }
 }
 function renderMore(){$("#settingCalories").value=db.settings.calories||2000;$("#settingProtein").value=db.settings.protein||160;$("#settingWeightGoal").value=db.settings.weightGoal??""}
 function showPage(id){$$(".page").forEach(p=>p.classList.toggle("active",p.id===id));$$("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));if(id==="progressPage")renderProgress();if(id==="badgesPage")renderBadges()}
