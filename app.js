@@ -156,7 +156,7 @@ function normalizeDb(x){
  }
 }
 function load(){try{let raw=localStorage.getItem(KEY);if(raw)return normalizeDb(JSON.parse(raw));let old=localStorage.getItem(LEGACY);if(old)return normalizeDb(JSON.parse(old));}catch(e){console.warn("Could not read saved data",e)}return fresh()}
-function save(){localStorage.setItem(KEY,JSON.stringify(db));render();syncBadgeUnlocks(true)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(err){console.warn("Could not save data",err)}syncBadgeUnlocks(false);render()}
 function lang(){return db.settings.lang||"en"}function t(k){return I18N[lang()][k]||k}
 function applyI18N(){
  document.documentElement.lang=lang();
@@ -181,7 +181,7 @@ function monthLabel(ds){
 }
 function foodItems(d){return db.foods.filter(x=>x.date===d)}function exItems(d){return db.exercises.filter(x=>x.date===d)}
 function totals(d){let f=foodItems(d),e=exItems(d);let eaten=f.reduce((a,x)=>a+(+x.calories||0)*(+x.quantity||1),0),pro=f.reduce((a,x)=>a+(+x.protein||0)*(+x.quantity||1),0),burned=e.reduce((a,x)=>a+(+x.burned||0),0),mins=e.reduce((a,x)=>a+(+x.minutes||0),0);return {eaten,pro,burned,mins,net:eaten-burned}}
-function loggedDays(){return [...new Set(db.foods.map(x=>x.date))].sort()}
+function loggedDays(){return [...new Set(db.foods.map(x=>x&&x.date).filter(d=>typeof d==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(d)))].sort()}
 function proteinHits(){return loggedDays().filter(d=>totals(d).pro>=(+db.settings.protein||160)).length}
 function hasFullDay(){return loggedDays().some(d=>["Breakfast","Lunch","Dinner"].every(m=>db.foods.some(x=>x.date===d&&x.meal===m)))}
 function balancedDays(){let calT=+db.settings.calories||2000,proT=+db.settings.protein||160;return loggedDays().filter(d=>{let t=totals(d);return t.net>=calT*.95&&t.net<=calT*1.05&&t.pro>=proT}).length}
@@ -200,8 +200,19 @@ function measurementDates(){return new Set(db.measurements.filter(x=>x.weight||x
 function halfwayToGoal(){let m=[...db.measurements].filter(x=>x.weight).sort((a,b)=>a.date.localeCompare(b.date));if(m.length<2||!db.settings.weightGoal)return false;let start=+m[0].weight,cur=+m.at(-1).weight,g=+db.settings.weightGoal;if(start===g)return true;return Math.abs(cur-g)<=Math.abs(start-g)/2}
 function goalReached(){let m=[...db.measurements].filter(x=>x.weight).sort((a,b)=>a.date.localeCompare(b.date));if(!m.length||!db.settings.weightGoal)return false;let start=+m[0].weight,cur=+m.at(-1).weight,g=+db.settings.weightGoal;return start>g?cur<=g:cur>=g}
 
+function safeRender(name,fn){try{fn()}catch(err){console.error(`Step by Step ${name} render error`,err)}}
 function render(){
- applyI18N();renderHome();renderProgress();renderBadges();renderMore()
+ safeRender("translations",applyI18N);
+ safeRender("home",renderHome);
+ safeRender("progress",renderProgress);
+ safeRender("badges",renderBadges);
+ safeRender("settings",renderMore);
+}
+function renderMore(){
+ const cal=$("#settingCalories"),pro=$("#settingProtein"),goal=$("#settingWeightGoal");
+ if(cal)cal.value=db.settings.calories??2000;
+ if(pro)pro.value=db.settings.protein??160;
+ if(goal)goal.value=db.settings.weightGoal??"";
 }
 function renderHome(){
  $("#selectedDateLabel").textContent=fmtDay(selectedDate);
@@ -210,6 +221,7 @@ function renderHome(){
  $("#homeCalTarget").textContent=`/ ${calT} kcal`;$("#homeProteinTarget").textContent=`/ ${proT}g`;$("#homeNetTarget").textContent=`/ ${calT} kcal`;
  renderHomeGauges(tt,calT,proT);
  $("#helloText").textContent=t("hello");
+ let intro=$("#homeIntroImage");if(intro)intro.src=lang()==="fr"?"saucisse-intro-fr.png":"saucisse-intro-en.png";
  let state=mascotState(tt,calT,proT);$("#homeMascotImg").src=state.img;$("#homeMascotTitle").textContent=state.title;$("#homeMascotCopy").textContent=state.copy;
  $("#mealSections").innerHTML=MEALS.map((m,i)=>mealCard(m,i)).join("")
 }
@@ -289,7 +301,7 @@ function renderBarChart(el,data,key,target,type){
  return `<div class="bar-item"><div class="bar-dow">${dow}</div><div class="bar-value">${Math.round(val)}</div><div class="bar-rail"><i class="bar-fill" style="height:${pct}%;background:${color}"></i></div><div class="bar-label">${x.label}</div></div>`}).join("")
 }
 function renderMeasurementCharts(start,end){
- let ms=[...db.measurements].filter(x=>x.date>=start&&x.date<=end).sort((a,b)=>a.date.localeCompare(b.date)),weights=ms.filter(x=>x.weight),waists=ms.filter(x=>x.waist);
+ let ms=[...db.measurements].filter(x=>x&&typeof x.date==="string"&&x.date>=start&&x.date<=end).sort((a,b)=>a.date.localeCompare(b.date)),weights=ms.filter(x=>Number.isFinite(+x.weight)&&+x.weight>0),waists=ms.filter(x=>Number.isFinite(+x.waist)&&+x.waist>0);
  renderMeasureBars($("#weightChart"),weights,"weight");renderMeasureBars($("#waistChart"),waists,"waist")
 }
 function renderMeasureBars(el,items,key){
@@ -547,6 +559,6 @@ $("#deleteFoodEdit").onclick=()=>{
 };
 
 function revealApp(){let splash=$("#splash"),appEl=$("#app");if(appEl)appEl.classList.remove("hidden");if(splash){splash.classList.add("hide");setTimeout(()=>splash.remove(),400)}}
-function boot(){try{render()}catch(err){console.error("Step by Step boot error",err);let box=document.createElement("div");box.className="boot-error";box.innerHTML=lang()==="fr"?"<strong>Step by Step! a rencontré un problème de chargement.</strong><br>Actualisez la page. Vos données enregistrées n’ont pas été supprimées.":"<strong>Step by Step! had trouble loading.</strong><br>Please refresh the page. Your saved data has not been deleted.";document.body.appendChild(box)}finally{setTimeout(revealApp,900)}}
+function boot(){try{render()}catch(err){console.error("Step by Step boot error",err)}finally{setTimeout(revealApp,900)}}
 if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js").catch(console.warn);
 boot();
