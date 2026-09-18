@@ -15,10 +15,105 @@ const ESSENTIALS=[
 {id:"cheddar",name:"Cheddar cheese",calories:416,protein:25.4,basis:100,basisUnit:"g",displayBasis:"per 100g",defaultAmount:30,step:5,source:"CoFID-backed"}
 ];
 const I18N={
-en:{splashTag:"Small steps. Big results.",heroCopy:"Step by step, for a healthier you.",calories:"Calories",protein:"Protein",exercise:"Exercise",netCalories:"Net calories",meals:"Meals",addExercise:"+ Exercise",progress:"Progress",week:"Week",month:"Month",averageCalories:"Average calories",averageProtein:"Average protein",weight:"Weight",waist:"Waist",addMeasurement:"+ Add measurement",badges:"Badges",doingAmazing:"You're doing amazing!",unlockMore:"Keep going to unlock more badges.",all:"All",nutrition:"Nutrition",activity:"Activity",journey:"Journey",more:"More",goals:"Goals",dailyCalories:"Daily calories",dailyProtein:"Daily protein",weightGoal:"Weight goal",language:"Language",data:"Data",exportBackup:"Export backup",restoreBackup:"Restore backup",exportCsv:"Export CSV",deleteAll:"Delete All Data",home:"Home",addFood:"Add Food",essentials:"Essentials",favourites:"Favourites",custom:"Custom",duration:"Duration (min)",caloriesBurned:"Calories burned",saveExercise:"Save Exercise",measurement:"Measurement",date:"Date",saveMeasurement:"Save Measurement"},
-fr:{splashTag:"Petits pas. Grands résultats.",heroCopy:"Pas à pas, vers une meilleure santé.",calories:"Calories",protein:"Protéines",exercise:"Exercice",netCalories:"Calories nettes",meals:"Repas",addExercise:"+ Exercice",progress:"Progrès",week:"Semaine",month:"Mois",averageCalories:"Calories moyennes",averageProtein:"Protéines moyennes",weight:"Poids",waist:"Tour de taille",addMeasurement:"+ Ajouter une mesure",badges:"Badges",doingAmazing:"Tu fais un super travail !",unlockMore:"Continue pour débloquer plus de badges.",all:"Tous",nutrition:"Nutrition",activity:"Activité",journey:"Parcours",more:"Plus",goals:"Objectifs",dailyCalories:"Calories quotidiennes",dailyProtein:"Protéines quotidiennes",weightGoal:"Objectif de poids",language:"Langue",data:"Données",exportBackup:"Exporter une sauvegarde",restoreBackup:"Restaurer une sauvegarde",exportCsv:"Exporter en CSV",deleteAll:"Supprimer toutes les données",home:"Accueil",addFood:"Ajouter un aliment",essentials:"Essentiels",favourites:"Favoris",custom:"Personnalisé",duration:"Durée (min)",caloriesBurned:"Calories brûlées",saveExercise:"Enregistrer l'exercice",measurement:"Mesure",date:"Date",saveMeasurement:"Enregistrer la mesure"}
-};
+en:{
+ splashTag:"Small steps. Big results.",heroCopy:"I’m Saucisse, and I’m here to help you get fitter! Let’s do this together, step by step!",hello:"Hello!",
+ calories:"Calories",protein:"Protein",exercise:"Exercise",netCalories:"Net calories",meals:"Meals",addExercise:"+ Exercise",progress:"Progress",
+ past7:"Past 7 days",monthly:"Monthly",custom:"Custom",from:"From",to:"To",apply:"Apply",selectedPeriod:"Selected period",
+ averageCalories:"Average net calories",averageProtein:"Average protein",target:"Target",weight:"Weight",waist:"Waist",addMeasurement:"+ Add measurement",
+ editMeasurement:"Edit measurement",saveMeasurement:"Save measurement",deleteMeasurement:"Delete measurement",tapBar:"Tap a bar to edit",
+ badges:"Badges",doingAmazing:"You're doing amazing!",unlockMore:"Keep going to unlock more badges.",all:"All",nutrition:"Nutrition",activity:"Activity",journey:"Journey",
+ more:"More",goals:"Goals",dailyCalories:"Daily calories",dailyProtein:"Daily protein",weightGoal:"Weight goal",language:"Language",data:"Data",
+ exportBackup:"Export backup",restoreBackup:"Restore backup",exportCsv:"Export CSV",deleteAll:"Delete All Data",home:"Home",addFood:"Add Food",essentials:"Essentials",
+ favourites:"Favourites",customFood:"Custom",duration:"Duration (min)",caloriesBurned:"Calories burned",saveExercise:"Save Exercise",measurement:"Measurement",date:"Date",
+ foodName:"Food name",meal:"Meal",amount:"Amount",quantity:"Quantity",saveFavourite:"Save as favourite",addDiary:"Add to diary",total:"Total",reference:"Reference",
+ caloriesPerItem:"Calories per item",proteinPerItem:"Protein per item (g)",editFood:"Edit Food",saveChanges:"Save changes",deleteDiary:"Delete from diary",
+ noFavourites:"No favourites yet.",sourceNote:"Reference nutrition values are standard values. Amounts are calculated from the quantity you enter; packaged foods can differ, so use the label when available.",
+ locked:"Locked",unlocked:"Unlocked",collected:"collected",progressWord:"Progress",days:"days",workouts:"workouts",checkIns:"check-ins",
+ noWeight:"No weight data yet",noWaist:"No waist data yet",measurementEmpty:"Add a measurement to start tracking your progress.",
+ invalidRange:"Choose a valid date range.",replaceBackup:"Replace the data on this device with this backup?",invalidBackup:"Invalid backup.",deleteAll1:"Delete ALL Step by Step! data on this device?",deleteAll2:"Final confirmation: delete everything?",
+ deleteMeasurementConfirm:"Delete this measurement?",deleteFoodConfirm:"Delete this food from the diary?",nothingLogged:"Nothing logged yet",add:"Add",burned:"kcal burned",
+ proteinWord:"protein",item:"item",items:"items",backEssentials:"‹ Essentials",backFavourites:"‹ Favourites",activityGym:"Gym",activityWalking:"Walking",activityRunning:"Running",activityYoga:"Yoga",activityOther:"Other"
+},
+fr:{
+ splashTag:"Petits pas. Grands résultats.",heroCopy:"Moi, c’est Saucisse, et je suis là pour t’aider à te remettre en forme ! Allez, faisons ça ensemble, pas à pas !",hello:"Hello!",
+ calories:"Calories",protein:"Protéines",exercise:"Exercice",netCalories:"Calories nettes",meals:"Repas",addExercise:"+ Exercice",progress:"Progrès",
+ past7:"7 derniers jours",monthly:"Mensuel",custom:"Personnalisé",from:"Du",to:"Au",apply:"Appliquer",selectedPeriod:"Période sélectionnée",
+ averageCalories:"Moyenne des calories nettes",averageProtein:"Moyenne des protéines",target:"Objectif",weight:"Poids",waist:"Tour de taille",addMeasurement:"+ Ajouter une mesure",
+ editMeasurement:"Modifier la mesure",saveMeasurement:"Enregistrer la mesure",deleteMeasurement:"Supprimer la mesure",tapBar:"Appuyez sur une barre pour la modifier",
+ badges:"Badges",doingAmazing:"Tu fais un super travail !",unlockMore:"Continue pour débloquer d’autres badges.",all:"Tous",nutrition:"Nutrition",activity:"Activité",journey:"Parcours",
+ more:"Plus",goals:"Objectifs",dailyCalories:"Calories quotidiennes",dailyProtein:"Protéines quotidiennes",weightGoal:"Objectif de poids",language:"Langue",data:"Données",
+ exportBackup:"Exporter une sauvegarde",restoreBackup:"Restaurer une sauvegarde",exportCsv:"Exporter en CSV",deleteAll:"Supprimer toutes les données",home:"Accueil",addFood:"Ajouter un aliment",essentials:"Essentiels",
+ favourites:"Favoris",customFood:"Personnalisé",duration:"Durée (min)",caloriesBurned:"Calories brûlées",saveExercise:"Enregistrer l’exercice",measurement:"Mesure",date:"Date",
+ foodName:"Nom de l’aliment",meal:"Repas",amount:"Quantité",quantity:"Quantité",saveFavourite:"Ajouter aux favoris",addDiary:"Ajouter au journal",total:"Total",reference:"Référence",
+ caloriesPerItem:"Calories par unité",proteinPerItem:"Protéines par unité (g)",editFood:"Modifier l’aliment",saveChanges:"Enregistrer les modifications",deleteDiary:"Supprimer du journal",
+ noFavourites:"Aucun favori pour le moment.",sourceNote:"Les valeurs nutritionnelles sont des valeurs de référence. Les quantités sont calculées selon la quantité saisie ; pour les produits emballés, utilisez l’étiquette lorsqu’elle est disponible.",
+ locked:"Verrouillé",unlocked:"Débloqué",collected:"débloqués",progressWord:"Progression",days:"jours",workouts:"entraînements",checkIns:"mesures",
+ noWeight:"Aucune donnée de poids",noWaist:"Aucune donnée de tour de taille",measurementEmpty:"Ajoutez une mesure pour commencer à suivre votre évolution.",
+ invalidRange:"Choisissez une plage de dates valide.",replaceBackup:"Remplacer les données de cet appareil par cette sauvegarde ?",invalidBackup:"Sauvegarde invalide.",deleteAll1:"Supprimer TOUTES les données Step by Step! de cet appareil ?",deleteAll2:"Dernière confirmation : tout supprimer ?",
+ deleteMeasurementConfirm:"Supprimer cette mesure ?",deleteFoodConfirm:"Supprimer cet aliment du journal ?",nothingLogged:"Rien d’enregistré",add:"Ajouter",burned:"kcal brûlées",
+ proteinWord:"protéines",item:"unité",items:"unités",backEssentials:"‹ Essentiels",backFavourites:"‹ Favoris",activityGym:"Salle de sport",activityWalking:"Marche",activityRunning:"Course",activityYoga:"Yoga",activityOther:"Autre"
+}
+}
 const MEAL_FR={Breakfast:"Petit-déjeuner",Lunch:"Déjeuner",Dinner:"Dîner",Snacks:"Encas",Drinks:"Boissons"};
+const ESSENTIAL_FR={
+ "egg-boiled-medium":["Œuf dur","1 œuf moyen (~50 g)"],"banana":["Banane, chair seulement","pour 100 g"],"apple":["Pomme, chair et peau","pour 100 g"],
+ "rice-white-boiled":["Riz blanc long grain, cuit","pour 100 g cuits"],"chicken-breast-grilled":["Blanc de poulet grillé, sans peau","pour 100 g cuits"],
+ "salmon-grilled":["Saumon d’élevage, grillé","pour 100 g cuits"],"potato-boiled":["Pomme de terre bouillie, chair seulement","pour 100 g cuits"],
+ "porridge-oats":["Flocons d’avoine, secs","pour 100 g secs"],"wholemeal-bread":["Pain complet, moyenne","pour 100 g"],
+ "semi-skimmed-milk":["Lait demi-écrémé","pour 100 ml"],"cheddar":["Cheddar","pour 100 g"]
+};
+const BADGE_COPY={
+ en:{
+  "first-step":["First Step","Log your first food entry.","Logged your first food entry"],
+  "getting-started":["Getting Started","Log food on 3 different days.","Logged food on 3 different days"],
+  "one-week":["One Week","Log food on 7 different days.","Logged food on 7 different days"],
+  "two-weeks":["Two Weeks Strong","Log food on 14 different days.","Logged food on 14 different days"],
+  "month-motion":["Month in Motion","Log food on 30 different days.","Logged food on 30 different days"],
+  "full-day-pup":["Full Day Pup","Log breakfast, lunch and dinner on the same day.","Logged breakfast, lunch and dinner in one day"],
+  "protein-pup":["Protein Pup","Meet your protein target once.","Met your protein target once"],
+  "protein-pro":["Protein Pro","Meet your protein target on 7 different days.","Met your protein target on 7 different days"],
+  "balanced-day":["Balanced Day","Finish a day within ±5% of your calorie target and meet your protein target.","Completed a balanced calorie and protein day"],
+  "balanced-week":["Balanced Week","Keep a full week's average calories within ±5% of target and average protein at or above target.","Completed a balanced week"],
+  "favourite-find":["Favourite Find","Save your first food or drink as a Favourite.","Saved your first Favourite"],
+  "quick-pick-pup":["Quick Pick Pup","Add your first food from Essentials.","Added your first food from Essentials"],
+  "first-workout":["First Workout","Log your first exercise session.","Logged your first workout"],
+  "active-pup":["Active Pup","Log 5 exercise sessions.","Logged 5 workouts"],
+  "exercise-expert":["Exercise Expert","Log 25 exercise sessions.","Logged 25 workouts"],
+  "progress-begins":["Progress Begins","Record your first weight or waist measurement.","Started tracking measurements"],
+  "keeping-track":["Keeping Track","Record weight or waist measurements on 5 different dates.","Recorded measurements on 5 different dates"],
+  "halfway-there":["Halfway There","Reach halfway from your starting weight to your goal weight.","Reached halfway to your weight goal"],
+  "goal-getter":["Goal Getter","Reach your weight goal.","Reached your weight goal"],
+  "step-by-step":["Step by Step!","Unlock the other 19 Saucisse badges.","Unlocked every Saucisse badge"]
+ },
+ fr:{
+  "first-step":["Premier pas","Enregistrez votre premier aliment.","Premier aliment enregistré"],
+  "getting-started":["C’est parti !","Enregistrez des aliments pendant 3 jours différents.","Aliments enregistrés pendant 3 jours différents"],
+  "one-week":["Une semaine","Enregistrez des aliments pendant 7 jours différents.","Aliments enregistrés pendant 7 jours différents"],
+  "two-weeks":["Deux semaines au top","Enregistrez des aliments pendant 14 jours différents.","Aliments enregistrés pendant 14 jours différents"],
+  "month-motion":["Un mois en mouvement","Enregistrez des aliments pendant 30 jours différents.","Aliments enregistrés pendant 30 jours différents"],
+  "full-day-pup":["Journée complète","Enregistrez le petit-déjeuner, le déjeuner et le dîner le même jour.","Petit-déjeuner, déjeuner et dîner enregistrés le même jour"],
+  "protein-pup":["Pup protéines","Atteignez votre objectif de protéines une fois.","Objectif de protéines atteint une fois"],
+  "protein-pro":["Pro des protéines","Atteignez votre objectif de protéines pendant 7 jours différents.","Objectif de protéines atteint pendant 7 jours différents"],
+  "balanced-day":["Journée équilibrée","Terminez une journée à ±5 % de votre objectif calorique et atteignez votre objectif de protéines.","Journée équilibrée en calories et protéines"],
+  "balanced-week":["Semaine équilibrée","Gardez la moyenne calorique de la semaine à ±5 % de l’objectif et la moyenne de protéines au niveau ou au-dessus de l’objectif.","Semaine équilibrée terminée"],
+  "favourite-find":["Coup de cœur","Ajoutez votre premier aliment ou boisson aux favoris.","Premier favori enregistré"],
+  "quick-pick-pup":["Choix express","Ajoutez votre premier aliment depuis les Essentiels.","Premier aliment ajouté depuis les Essentiels"],
+  "first-workout":["Premier entraînement","Enregistrez votre première séance d’exercice.","Première séance d’exercice enregistrée"],
+  "active-pup":["Pup actif","Enregistrez 5 séances d’exercice.","5 séances d’exercice enregistrées"],
+  "exercise-expert":["Expert de l’exercice","Enregistrez 25 séances d’exercice.","25 séances d’exercice enregistrées"],
+  "progress-begins":["Le progrès commence","Enregistrez votre première mesure de poids ou de tour de taille.","Suivi des mesures commencé"],
+  "keeping-track":["Suivi régulier","Enregistrez des mesures de poids ou de tour de taille à 5 dates différentes.","Mesures enregistrées à 5 dates différentes"],
+  "halfway-there":["À mi-chemin","Atteignez la moitié du chemin entre votre poids de départ et votre objectif.","Mi-chemin vers l’objectif de poids atteint"],
+  "goal-getter":["Objectif atteint","Atteignez votre objectif de poids.","Objectif de poids atteint"],
+  "step-by-step":["Step by Step!","Débloquez les 19 autres badges de Saucisse.","Tous les badges de Saucisse débloqués"]
+ }
+};
+function essentialName(f){return lang()==="fr"&&ESSENTIAL_FR[f.id]?ESSENTIAL_FR[f.id][0]:f.name}
+function essentialBasis(f){return lang()==="fr"&&ESSENTIAL_FR[f.id]?ESSENTIAL_FR[f.id][1]:f.displayBasis}
+function foodDisplayName(x){if(x?.sourceType==="essential"&&x.essentialId){let f=ESSENTIALS.find(e=>e.id===x.essentialId);if(f)return essentialName(f)}return x?.name||""}
+function foodDisplayBasis(x){if(x?.sourceType==="essential"&&x.essentialId){let f=ESSENTIALS.find(e=>e.id===x.essentialId);if(f)return essentialBasis(f)}return x?.displayBasis||""}
+function badgeCopy(id){return (BADGE_COPY[lang()]&&BADGE_COPY[lang()][id])||BADGE_COPY.en[id]||[id,"",""]}
+
 const BADGES=[
 {id:"first-step",name:"First Step",cat:"journey",test:()=>loggedDays().length>=1,img:"badge-first-step.png"},
 {id:"getting-started",name:"Getting Started",cat:"journey",test:()=>loggedDays().length>=3,img:"badge-getting-started.png"},
@@ -63,7 +158,14 @@ function normalizeDb(x){
 function load(){try{let raw=localStorage.getItem(KEY);if(raw)return normalizeDb(JSON.parse(raw));let old=localStorage.getItem(LEGACY);if(old)return normalizeDb(JSON.parse(old));}catch(e){console.warn("Could not read saved data",e)}return fresh()}
 function save(){localStorage.setItem(KEY,JSON.stringify(db));render();syncBadgeUnlocks(true)}
 function lang(){return db.settings.lang||"en"}function t(k){return I18N[lang()][k]||k}
-function applyI18N(){$$("[data-i18n]").forEach(e=>e.textContent=t(e.dataset.i18n));$$("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang()))}
+function applyI18N(){
+ document.documentElement.lang=lang();
+ $$("[data-i18n]").forEach(e=>e.textContent=t(e.dataset.i18n));
+ $$("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang()));
+ const acts={Gym:"activityGym",Walking:"activityWalking",Running:"activityRunning",Yoga:"activityYoga",Other:"activityOther"};
+ $$("#activityType option").forEach(o=>{if(acts[o.value])o.textContent=t(acts[o.value])});
+ $$("#editFoodMeal option").forEach(o=>o.textContent=mealLabel(o.value));
+}
 function mealLabel(m){return lang()==="fr"?MEAL_FR[m]:m}
 function uid(){return crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random()}
 function addDays(ds,n){let d=new Date(ds+"T12:00:00");d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
@@ -104,11 +206,11 @@ function render(){
 function renderHome(){
  $("#selectedDateLabel").textContent=fmtDay(selectedDate);
  let tt=totals(selectedDate),calT=+db.settings.calories||2000,proT=+db.settings.protein||160;
- $("#homeCalories").textContent=Math.round(tt.eaten);$("#homeProtein").textContent=Math.round(tt.pro)+"g";$("#homeExercise").textContent=Math.round(tt.mins)+" min";$("#homeBurned").textContent=Math.round(tt.burned)+" kcal burned";$("#homeNet").textContent=Math.round(tt.net);
+ $("#homeCalories").textContent=Math.round(tt.eaten);$("#homeProtein").textContent=Math.round(tt.pro)+"g";$("#homeExercise").textContent=Math.round(tt.mins)+" min";$("#homeBurned").textContent=`${Math.round(tt.burned)} ${t("burned")}`;$("#homeNet").textContent=Math.round(tt.net);
  $("#homeCalTarget").textContent=`/ ${calT} kcal`;$("#homeProteinTarget").textContent=`/ ${proT}g`;$("#homeNetTarget").textContent=`/ ${calT} kcal`;
  renderHomeGauges(tt,calT,proT);
- $("#helloText").textContent="Hello!";
- let state=mascotState(tt.net,tt.pro,calT,proT);$("#homeMascotImg").src=state.img;$("#homeMascotTitle").textContent=state.title;$("#homeMascotCopy").textContent=state.copy;
+ $("#helloText").textContent=t("hello");
+ let state=mascotState(tt,calT,proT);$("#homeMascotImg").src=state.img;$("#homeMascotTitle").textContent=state.title;$("#homeMascotCopy").textContent=state.copy;
  $("#mealSections").innerHTML=MEALS.map((m,i)=>mealCard(m,i)).join("")
 }
 function renderHomeGauges(tt,calT,proT){
@@ -122,18 +224,25 @@ function renderHomeGauges(tt,calT,proT){
  $("#proteinGaugeFill").style.width=`${proPct}%`;$("#proteinGaugeFill").style.background=proMet?"var(--green)":"var(--red)";
  $("#proteinGaugeNote").textContent=proMet?(lang()==="fr"?"Objectif protéines atteint":"Protein target reached"):(lang()==="fr"?`${Math.max(0,Math.round(proT-pro))} g restants`:`${Math.max(0,Math.round(proT-pro))} g to go`);
 }
-function mascotState(cal,pro,calT,proT){
- if(!foodItems(selectedDate).length)return {img:"curious.png",title:lang()==="fr"?"Prêt ?":"Ready when you are!",copy:lang()==="fr"?"Ajoutez votre premier repas de la journée.":"Add your first meal of the day."};
- let cr=cal/calT,pr=pro/proT;
- if(cr>=.9&&cr<=1.1&&pr>=.9)return {img:"excited.png",title:lang()==="fr"?"Super journée !":"You're on track!",copy:lang()==="fr"?"Tes apports sont proches de tes objectifs.":"Your intake is sitting nicely around your targets."};
- if(cr<.75||cr>1.25||pr<.65)return {img:"sad.png",title:lang()==="fr"?"On ajuste doucement.":"A little reset helps.",copy:lang()==="fr"?"Pas de stress. Regarde la tendance et avance pas à pas.":"No stress. Look at the trend and keep going step by step."};
- return {img:"happy.png",title:lang()==="fr"?"Presque !":"Nearly there!",copy:lang()==="fr"?"Quelques petits ajustements et tu seras proche de la cible.":"A few small adjustments will bring you closer to target."}
+function mascotState(tt,calT,proT){
+ const hasFood=foodItems(selectedDate).length>0,net=+tt.net||0,pro=+tt.pro||0,mins=+tt.mins||0;
+ const isToday=selectedDate===todayISO(),hour=new Date().getHours(),late=!isToday||hour>=18;
+ if(!hasFood)return {img:"curious.png",title:lang()==="fr"?"Prêt quand tu veux !":"Ready when you are!",copy:lang()==="fr"?"Commence quand tu veux. Chaque petit pas compte.":"Start whenever you're ready. Every little step counts."};
+ if(net>calT)return {img:"sad.png",title:lang()==="fr"?"Un peu au-dessus, et ce n’est pas grave.":"A little over today, and that's okay.",copy:lang()==="fr"?(pro>=proT?"Tu as quand même atteint ton objectif de protéines. Une journée ne définit pas tes progrès.":"Une journée ne définit pas tes progrès. Demain sera une nouvelle étape."):(pro>=proT?"You still hit your protein goal. One day doesn't define your progress.":"One day doesn't define your progress. Tomorrow is another step.")};
+ if(!late){
+  if(pro>=proT||net>=calT*.75)return {img:"excited.png",title:lang()==="fr"?"Ça avance bien !":"Looking good!",copy:lang()==="fr"?"Ta journée est encore en cours. Continue comme ça !":"Your day is still in progress. Keep it going!"};
+  return {img:"curious.png",title:lang()==="fr"?"On continue !":"Keep going!",copy:lang()==="fr"?"Je suis encore en train de découvrir ta journée avec toi.":"I'm still getting the full picture of your day with you."};
+ }
+ if(pro>=proT&&net>=calT*.9)return {img:"happy.png",title:lang()==="fr"?"Super équilibre aujourd’hui !":"Great balance today!",copy:lang()==="fr"?"Bien joué, tes calories et tes protéines sont dans une très bonne zone.":"Well done, your calories and protein are in a really good place."};
+ if(mins===0)return {img:"sleepy.png",title:lang()==="fr"?"Journée tranquille ?":"Taking it easy today?",copy:lang()==="fr"?"Le repos fait aussi partie du parcours. On reprend pas à pas.":"Rest is part of the journey too. We'll keep going step by step."};
+ if(pro<proT)return {img:"excited.png",title:lang()==="fr"?"Presque !":"Nearly there!",copy:lang()==="fr"?"Les calories sont bien placées. Un peu plus de protéines compléterait bien la journée.":"Calories are looking good. A little more protein would round out the day."};
+ return {img:"happy.png",title:lang()==="fr"?"Belle journée !":"Nice day!",copy:lang()==="fr"?"Continue comme ça, pas à pas.":"Keep it going, step by step."}
 }
 function mealCard(m,i){
  let icons=["breakfast.png","lunch.png","dinner.png","snacks.png","drinks.png"],items=foodItems(selectedDate).filter(x=>x.meal===m),cal=items.reduce((a,x)=>a+(+x.calories||0)*(+x.quantity||1),0),pro=items.reduce((a,x)=>a+(+x.protein||0)*(+x.quantity||1),0);
  return `<div class="meal-card"><div class="meal-header"><div class="meal-name"><span class="meal-icon"><img src="${icons[i]}" alt=""></span>${mealLabel(m)}</div><button class="meal-add" onclick="openFood('${m}')">+ ${lang()==="fr"?"Ajouter":"Add"}</button></div>
- <div class="meal-items">${items.length?items.map(x=>`<div class="food-row"><button onclick="editFood('${x.id}')"><strong>${esc(x.name)}${x.amount?` · ${x.amount}${x.amountUnit==="item"?(x.amount==1?" item":" items"):x.amountUnit}`:((+x.quantity||1)>1?` × ${x.quantity}`:"")}</strong><br><small>${Math.round((+x.calories||0)*(+x.quantity||1))} kcal · ${round1((+x.protein||0)*(+x.quantity||1))}g</small></button><span>›</span></div>`).join(""):`<div class="food-row"><small>${lang()==="fr"?"Rien d'enregistré":"Nothing logged yet"}</small></div>`}</div>
- <div class="meal-total"><span>${Math.round(cal)} kcal</span><span>${round1(pro)}g protein</span></div></div>`
+ <div class="meal-items">${items.length?items.map(x=>`<div class="food-row"><button onclick="editFood('${x.id}')"><strong>${esc(foodDisplayName(x))}${x.amount?` · ${x.amount}${x.amountUnit==="item"?` ${x.amount==1?t("item"):t("items")}`:x.amountUnit}`:((+x.quantity||1)>1?` × ${x.quantity}`:"")}</strong><br><small>${Math.round((+x.calories||0)*(+x.quantity||1))} kcal · ${round1((+x.protein||0)*(+x.quantity||1))}g ${t("proteinWord")}</small></button><span>›</span></div>`).join(""):`<div class="food-row"><small>${t("nothingLogged")}</small></div>`}</div>
+ <div class="meal-total"><span>${Math.round(cal)} kcal</span><span>${round1(pro)}g ${t("proteinWord")}</span></div></div>`
 }
 function dateRange(start,end){
  let out=[];if(!start||!end||start>end)return out;let d=start,guard=0;
@@ -156,7 +265,7 @@ function renderProgress(){
  let bounds=selectedBounds(),data=period==="month"?monthlyRange(12):dateRange(bounds[0],bounds[1]);
  let actualDays=loggedDays().filter(d=>d>=bounds[0]&&d<=bounds[1]),avgC=actualDays.length?actualDays.reduce((a,d)=>a+totals(d).net,0)/actualDays.length:null,avgP=actualDays.length?actualDays.reduce((a,d)=>a+totals(d).pro,0)/actualDays.length:null;
  $("#periodSummaryLabel").textContent=periodLabel(bounds[0],bounds[1]);
- $("#avgCalories").textContent=avgC==null?"N/A":`${Math.round(avgC)} kcal`;$("#avgProtein").textContent=avgP==null?"N/A":`${round1(avgP)}g`;$("#avgCaloriesTarget").textContent=`Target ${db.settings.calories||2000}`;$("#avgProteinTarget").textContent=`Target ${db.settings.protein||160}g`;
+ $("#avgCalories").textContent=avgC==null?"N/A":`${Math.round(avgC)} kcal`;$("#avgProtein").textContent=avgP==null?"N/A":`${round1(avgP)}g`;$("#avgCaloriesTarget").textContent=`${t("target")} ${db.settings.calories||2000}`;$("#avgProteinTarget").textContent=`${t("target")} ${db.settings.protein||160}g`;
  let s=progressState(avgC,avgP);$("#progressMascot").src=s.img;$("#progressHeadline").textContent=s.title;$("#progressMessage").textContent=s.copy;
  renderBarChart($("#calorieChart"),data,"cal",+db.settings.calories||2000,"calorie");
  renderBarChart($("#proteinChart"),data,"pro",+db.settings.protein||160,"protein");
@@ -164,7 +273,14 @@ function renderProgress(){
  $$("[data-monthly-note]").forEach(n=>{n.hidden=period!=="month";n.textContent=lang()==="fr"?"ⓘ Les valeurs mensuelles de calories et de protéines correspondent à la moyenne par jour enregistré.":"ⓘ Monthly calorie and protein values show the average per logged day."});
 }
 function monthlyRange(n){let now=new Date(),out=[];for(let i=n-1;i>=0;i--){let d=new Date(now.getFullYear(),now.getMonth()-i,1),y=d.getFullYear(),m=d.getMonth(),key=`${y}-${String(m+1).padStart(2,"0")}`;let ds=loggedDays().filter(x=>x.startsWith(key));let cal=ds.length?ds.reduce((a,x)=>a+totals(x).net,0)/ds.length:0,pro=ds.length?ds.reduce((a,x)=>a+totals(x).pro,0)/ds.length:0;out.push({label:monthLabel(`${y}-${String(m+1).padStart(2,"0")}-01`),cal,pro,hasFood:ds.length>0})}return out}
-function progressState(c,p){if(c==null||p==null)return {img:"curious.png",title:"Let's get started!",copy:"Log a few days and Saucisse will help you read the trend."};let ct=+db.settings.calories||2000,pt=+db.settings.protein||160,cr=c/ct,pr=p/pt;if(cr>=.95&&cr<=1.05&&pr>=.95)return {img:"excited.png",title:lang()==="fr"?"Super période !":"Great period!",copy:lang()==="fr"?"Tes moyennes sont très proches de tes objectifs.":"Your averages are sitting nicely around your targets."};if(cr<.8||cr>1.2||pr<.7)return {img:"sad.png",title:lang()==="fr"?"On garde le cap.":"Keep going.",copy:lang()==="fr"?"La tendance est encore loin de la cible, mais chaque période compte.":"The trend is still some way from target, but every period counts."};return {img:"happy.png",title:lang()==="fr"?"Presque !":"Nearly there!",copy:lang()==="fr"?"Tu n'es pas loin. Continue pas à pas.":"You're not far off. Keep going step by step."}}
+function progressState(c,p){
+ if(c==null||p==null)return {img:"curious.png",title:lang()==="fr"?"Commençons !":"Let's get started!",copy:lang()==="fr"?"Enregistre quelques jours et Saucisse t’aidera à lire la tendance.":"Log a few days and Saucisse will help you read the trend."};
+ let ct=+db.settings.calories||2000,pt=+db.settings.protein||160,cr=c/ct,pr=p/pt;
+ if(c>ct*1.05)return {img:"sad.png",title:lang()==="fr"?"Un peu au-dessus, et ce n’est pas grave.":"A little over, and that's okay.",copy:lang()==="fr"?"Une période ne définit pas tes progrès. Regarde la tendance et continue pas à pas.":"One period doesn't define your progress. Look at the trend and keep going step by step."};
+ if(cr>=.95&&cr<=1.05&&pr>=1)return {img:"happy.png",title:lang()==="fr"?"Super période !":"Great period!",copy:lang()==="fr"?"Tes moyennes sont très proches de tes objectifs.":"Your averages are sitting nicely around your targets."};
+ if(pr<.75||cr<.8)return {img:"curious.png",title:lang()==="fr"?"On continue !":"Keep going!",copy:lang()==="fr"?"La tendance est encore en construction. Chaque entrée nous donne une meilleure image.":"The trend is still taking shape. Every entry gives us a better picture."};
+ return {img:"excited.png",title:lang()==="fr"?"Presque !":"Nearly there!",copy:lang()==="fr"?"Tu n’es pas loin. Continue pas à pas.":"You're not far off. Keep going step by step."}
+}
 function renderBarChart(el,data,key,target,type){
  let max=Math.max(target,...data.filter(x=>x.hasFood).map(x=>x[key]),1)*1.15,isDaily=period!=="month";
  el.classList.toggle("empty-chart",!data.some(x=>x.hasFood));
@@ -179,43 +295,31 @@ function renderMeasurementCharts(start,end){
 function renderMeasureBars(el,items,key){
  if(!items.length){
    el.classList.add("empty-chart");
-   let title=key==="weight"?(lang()==="fr"?"Aucune donnée de poids":"No weight data yet"):(lang()==="fr"?"Aucune donnée de tour de taille":"No waist data yet");
-   let copy=lang()==="fr"?"Ajoutez une mesure pour commencer à suivre votre évolution.":"Add a measurement to start tracking your progress.";
-   const emptyImg=key==="waist"?"saucisse-curious-waist.png":"saucisse-scale.png";
-   el.innerHTML=`<div class="measurement-empty"><img src="${emptyImg}" alt=""><strong>${title}</strong><span>${copy}</span></div>`;
+   let title=key==="weight"?t("noWeight"):t("noWaist");
+   el.innerHTML=`<div class="measurement-empty"><img src="saucisse-curious-measurement.png" alt="Saucisse"><strong>${title}</strong><span>${t("measurementEmpty")}</span></div>`;
    return
  }
  el.classList.remove("empty-chart");
- let vals=items.map(x=>+x[key]),max=Math.max(...vals)*1.05,min=Math.min(...vals)*.95,goal=key==="weight"?+db.settings.weightGoal||null:null;
- el.innerHTML=items.map((x,i)=>{let v=+x[key],pct=Math.max(12,Math.min(96,(v-min)/(max-min||1)*72+18)),color="var(--green)";
- if(key==="weight"&&i>0){let prev=+items[i-1][key];if(goal){let prevD=Math.abs(prev-goal),curD=Math.abs(v-goal);if(curD>prevD)color="var(--red)";else{let closeness=Math.max(0,1-curD/Math.max(Math.abs(+items[0][key]-goal),1));color=closeness>.66?"var(--green)":closeness>.33?"#9bcf53":"var(--orange)"}}else color=v>prev?"var(--red)":"var(--green)"}
- return `<div class="bar-item"><div class="bar-value">${round1(v)}</div><div class="bar-rail"><i class="bar-fill" style="height:${pct}%;background:${color}"></i></div><div class="bar-label">${shortDay(x.date)}</div></div>`}).join("")
+ let vals=items.map(x=>+x[key]),min=Math.min(...vals),max=Math.max(...vals),span=Math.max(max-min,1);
+ el.innerHTML=items.map((x,i)=>{
+   let v=+x[key],pct=items.length===1?58:Math.max(32,Math.min(92,32+((v-min)/span)*60));
+   let color="var(--blue)";
+   if(i>0){let prev=+items[i-1][key];color=v<prev?"var(--green)":v>prev?"var(--red)":"var(--blue)"}
+   return `<button type="button" class="bar-item measurement-entry" onclick="openMeasurementEdit('${x.id}')"><div class="bar-value">${round1(v)}</div><div class="bar-rail"><i class="bar-fill" style="height:${pct}%;background:${color}"></i></div><div class="bar-label">${shortDay(x.date)}</div></button>`
+ }).join("")
 }
-
 function badgeRequirement(id){
  const req={
- "first-step":["Log your first food entry.",()=>Math.min(1,db.foods.length),1],
- "getting-started":["Log food on 3 different days.",()=>Math.min(3,loggedDays().length),3],
- "one-week":["Log food on 7 different days.",()=>Math.min(7,loggedDays().length),7],
- "two-weeks":["Log food on 14 different days.",()=>Math.min(14,loggedDays().length),14],
- "month-motion":["Log food on 30 different days.",()=>Math.min(30,loggedDays().length),30],
- "full-day-pup":["Log breakfast, lunch and dinner on the same day.",()=>hasFullDay()?1:0,1],
- "protein-pup":["Meet your protein target on 1 day.",()=>Math.min(1,proteinHits()),1],
- "protein-pro":["Meet your protein target on 7 different days.",()=>Math.min(7,proteinHits()),7],
- "balanced-day":["Finish a day within ±5% of your calorie target and meet your protein target.",()=>Math.min(1,balancedDays()),1],
- "balanced-week":["Complete 7 logged days in a row with average calories within ±5% of target and average protein at or above target.",()=>balancedWeek()?1:0,1],
- "favourite-find":["Save your first food or drink as a Favourite.",()=>Math.min(1,db.favourites.length),1],
- "quick-pick-pup":["Add your first food from Essentials.",()=>db.foods.some(x=>x.sourceType==="essential")?1:0,1],
- "first-workout":["Log your first exercise session.",()=>Math.min(1,db.exercises.length),1],
- "active-pup":["Log 5 exercise sessions.",()=>Math.min(5,db.exercises.length),5],
- "exercise-expert":["Log 25 exercise sessions.",()=>Math.min(25,db.exercises.length),25],
- "progress-begins":["Record your first weight or waist measurement.",()=>Math.min(1,measurementDates()),1],
- "keeping-track":["Record weight or waist measurements on 5 different dates.",()=>Math.min(5,measurementDates()),5],
- "halfway-there":["Reach halfway from your starting weight to your goal weight.",()=>halfwayToGoal()?1:0,1],
- "goal-getter":["Reach your weight goal.",()=>goalReached()?1:0,1],
- "step-by-step":["Unlock the other 19 Saucisse badges.",()=>BADGES.slice(0,19).filter(b=>isBadgeUnlocked(b)).length,19]
+ "first-step":[()=>Math.min(1,db.foods.length),1,"days"],"getting-started":[()=>Math.min(3,loggedDays().length),3,"days"],"one-week":[()=>Math.min(7,loggedDays().length),7,"days"],
+ "two-weeks":[()=>Math.min(14,loggedDays().length),14,"days"],"month-motion":[()=>Math.min(30,loggedDays().length),30,"days"],"full-day-pup":[()=>hasFullDay()?1:0,1,null],
+ "protein-pup":[()=>Math.min(1,proteinHits()),1,"days"],"protein-pro":[()=>Math.min(7,proteinHits()),7,"days"],"balanced-day":[()=>Math.min(1,balancedDays()),1,null],
+ "balanced-week":[()=>balancedWeek()?1:0,1,null],"favourite-find":[()=>Math.min(1,db.favourites.length),1,null],"quick-pick-pup":[()=>db.foods.some(x=>x.sourceType==="essential")?1:0,1,null],
+ "first-workout":[()=>Math.min(1,db.exercises.length),1,"workouts"],"active-pup":[()=>Math.min(5,db.exercises.length),5,"workouts"],"exercise-expert":[()=>Math.min(25,db.exercises.length),25,"workouts"],
+ "progress-begins":[()=>Math.min(1,measurementDates()),1,"checkIns"],"keeping-track":[()=>Math.min(5,measurementDates()),5,"checkIns"],"halfway-there":[()=>halfwayToGoal()?1:0,1,null],
+ "goal-getter":[()=>goalReached()?1:0,1,null],"step-by-step":[()=>BADGES.slice(0,19).filter(b=>isBadgeUnlocked(b)).length,19,null]
  };
- return req[id]||["Keep going to unlock this badge.",()=>0,1]
+ const r=req[id]||[()=>0,1,null],copy=badgeCopy(id);
+ return [copy[1],r[0],r[1],r[2]]
 }
 function safeBadgeTest(b){try{return !!b.test()}catch(err){console.warn("Badge test failed",b?.id,err);return false}}
 function syncBadgeUnlocks(showCelebration=false){
@@ -226,93 +330,32 @@ function syncBadgeUnlocks(showCelebration=false){
  if(showCelebration&&newly.length){ /* achievement is shown directly in the badge book */ }
 }
 function isBadgeUnlocked(b){return !!(db.meta?.badgeUnlocks?.[b.id]||safeBadgeTest(b))}
-function openBadge(id,celebration=false){
- let b=BADGES.find(x=>x.id===id);if(!b){console.warn("Badge not found",id);return;}let unlocked=isBadgeUnlocked(b),r=badgeRequirement(id),cur=r[1](),goal=r[2]();
- $("#badgeModalName").textContent=b.name;$("#badgeModalImg").src=b.img;
- $("#badgeModalStatus").textContent=unlocked?(celebration?"BADGE UNLOCKED!":"UNLOCKED"):"LOCKED";
- $("#badgeModalStatus").className="badge-status "+(unlocked?"unlocked":"locked");
- $("#badgeModalText").textContent=unlocked?`Well done! You have unlocked ${b.name}.`:r[0];
- $("#badgeModalProgress").textContent=unlocked?`Unlocked ${db.meta?.badgeUnlocks?.[id]||todayISO()}`:`Progress: ${cur} / ${goal}`;
- openModal("badgeModal")
-}
-
-function showBadgePopup(id,celebration=false){
- const b=BADGES.find(x=>x.id===id);if(!b)return;
- const unlocked=isBadgeUnlocked(b);
- const r=badgeRequirement(id),cur=r[1](),goal=r[2]();
- document.querySelector(".badge-popup-overlay")?.remove();
- const overlay=document.createElement("div");
- overlay.className="badge-popup-overlay";
- const unlockedDate=db.meta?.badgeUnlocks?.[id]||todayISO();
- overlay.innerHTML=`<div class="badge-popup-card" role="dialog" aria-modal="true">
-   <button type="button" class="badge-popup-close" aria-label="Close">×</button>
-   <img src="${b.img}" alt="">
-   <div class="badge-popup-state ${unlocked?"unlocked":"locked"}">${unlocked?(celebration?"BADGE UNLOCKED!":"UNLOCKED"):"LOCKED"}</div>
-   <h2>${b.name}</h2>
-   <p>${unlocked?`Well done! You have unlocked <strong>${b.name}</strong>.`:r[0]}</p>
-   <div class="badge-popup-progress">${unlocked?`Unlocked ${unlockedDate}`:`Progress: ${cur} / ${goal}`}</div>
-   <button type="button" class="primary badge-popup-ok">OK</button>
- </div>`;
- document.body.appendChild(overlay);
- const close=()=>overlay.remove();
- overlay.querySelector(".badge-popup-close").onclick=close;
- overlay.querySelector(".badge-popup-ok").onclick=close;
- overlay.addEventListener("click",e=>{if(e.target===overlay)close()});
- requestAnimationFrame(()=>overlay.classList.add("show"));
-}
-
-function badgeShortDescription(id,unlocked){
- const text={
-  "first-step":["Logged your first food","Log your first food"],
-  "getting-started":["Logged on 3 different days","Log on 3 different days"],
-  "one-week":["Logged on 7 different days","Log on 7 different days"],
-  "two-weeks":["Logged on 14 different days","Log on 14 different days"],
-  "month-motion":["Logged on 30 different days","Log on 30 different days"],
-  "full-day-pup":["Logged breakfast, lunch and dinner","Log all 3 main meals in one day"],
-  "protein-pup":["Met your protein target once","Meet your protein target once"],
-  "protein-pro":["Met your protein target on 7 days","Meet your protein target on 7 days"],
-  "balanced-day":["Hit a balanced calorie + protein day","Calories ±5% and protein target met"],
-  "balanced-week":["Completed a balanced week","Keep a full week's averages on target"],
-  "favourite-find":["Saved your first Favourite","Save your first Favourite"],
-  "quick-pick-pup":["Used Essentials for a quick add","Add your first Essentials food"],
-  "first-workout":["Logged your first workout","Log your first workout"],
-  "active-pup":["Logged 5 workouts","Log 5 workouts"],
-  "exercise-expert":["Logged 25 workouts","Log 25 workouts"],
-  "progress-begins":["Started tracking measurements","Add your first measurement"],
-  "keeping-track":["Recorded 5 measurement check-ins","Record measurements on 5 dates"],
-  "halfway-there":["Reached halfway to your goal","Reach halfway to your weight goal"],
-  "goal-getter":["Reached your weight goal","Reach your weight goal"],
-  "step-by-step":["Collected every badge","Unlock the other 19 badges"]
- };
- return (text[id]||["Achievement unlocked","Keep going"])[unlocked?0:1]
-}
 function badgeCardProgress(id,unlocked){
- if(unlocked)return "✓ Unlocked";
- const r=badgeRequirement(id),cur=r[1](),goal=r[2]();
- return `${cur} / ${goal}`
+ if(unlocked)return `✓ ${t("unlocked")}`;
+ const r=badgeRequirement(id),cur=r[1](),goal=r[2],unitKey=r[3];
+ if(goal<=1)return t("locked");
+ return `${cur} / ${goal}${unitKey?` ${t(unitKey)}`:""}`
 }
 function renderBadges(){
  try{
   syncBadgeUnlocks(false);
   let unlocked=BADGES.filter(b=>isBadgeUnlocked(b)).length;
-  $("#badgeCount").textContent=`${unlocked} / 20 collected`;
+  $("#badgeCount").textContent=`${unlocked} / 20 ${t("collected")}`;
   $("#badgeProgress").style.width=`${unlocked/20*100}%`;
   $("#badgeGrid").innerHTML=BADGES.filter(b=>badgeFilter==="all"||b.cat===badgeFilter).map(b=>{
-    let ok=isBadgeUnlocked(b),desc="",prog="";
-    try{desc=badgeShortDescription(b.id,ok);prog=badgeCardProgress(b.id,ok)}catch(err){console.warn("Badge card failed",b.id,err);desc=ok?"Achievement unlocked":"Keep going";prog=ok?"✓ Unlocked":"Locked"}
+    let ok=isBadgeUnlocked(b),copy=badgeCopy(b.id),req=badgeRequirement(b.id);
     return `<div class="badge ${ok?"unlocked":"locked"}">
-      <div class="badge-art"><img src="${b.img}" alt="${b.name}" onerror="this.style.display='none'"></div>
-      <strong>${b.name}</strong>
-      <p class="badge-description">${desc}</p>
-      <small class="${ok?"badge-success":"badge-progress-text"}">${prog}</small>
+      <div class="badge-art"><img src="${ok?b.img:"badge-locked.png"}" alt="${esc(copy[0])}"></div>
+      <strong>${copy[0]}</strong>
+      <p class="badge-description">${ok?copy[2]:req[0]}</p>
+      <small class="${ok?"badge-success":"badge-progress-text"}">${badgeCardProgress(b.id,ok)}</small>
     </div>`
   }).join("")
  }catch(err){
-  console.error("Badge page render failed",err);
-  $("#badgeGrid").innerHTML=BADGES.map(b=>`<div class="badge locked"><div class="badge-art"><img src="${b.img}" alt="${b.name}" onerror="this.style.display='none'"></div><strong>${b.name}</strong><p class="badge-description">Locked</p><small>Locked</small></div>`).join("");
+  console.error("Badge render failed",err);
+  $("#badgeGrid").innerHTML=BADGES.map(b=>{let c=badgeCopy(b.id);return `<div class="badge locked"><div class="badge-art"><img src="badge-locked.png" alt=""></div><strong>${c[0]}</strong><p class="badge-description">${c[1]}</p><small>${t("locked")}</small></div>`}).join("")
  }
 }
-function renderMore(){$("#settingCalories").value=db.settings.calories||2000;$("#settingProtein").value=db.settings.protein||160;$("#settingWeightGoal").value=db.settings.weightGoal??""}
 function showPage(id){$$(".page").forEach(p=>p.classList.toggle("active",p.id===id));$$("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));if(id==="progressPage")renderProgress();if(id==="badgesPage")renderBadges()}
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}function round1(n){return Math.round((+n||0)*10)/10}
 function openModal(id){$("#"+id).classList.add("open")}function closeModal(id){$("#"+id).classList.remove("open")}
@@ -324,26 +367,26 @@ function renderFoodModal(){
  if(foodTab==="essentials"){
    c.innerHTML=`<div class="food-list-card">${ESSENTIALS.map((f,i)=>`
    <button type="button" class="essential-row essential-select" data-essential-id="${f.id}">
-     <div><strong>${f.name}</strong><small>${f.calories} kcal · ${f.protein}g protein · ${f.displayBasis}</small></div><span>›</span>
+     <div><strong>${essentialName(f)}</strong><small>${f.calories} kcal · ${f.protein}g ${t("proteinWord")} · ${essentialBasis(f)}</small></div><span>›</span>
    </button>`).join("")}</div>
-   <p class="food-source-note">Reference nutrition values are standard values. Amounts are calculated from the quantity you enter; packaged foods can differ, so use the label when available.</p>`;
+   <p class="food-source-note">${t("sourceNote")}</p>`;
    c.querySelectorAll("[data-essential-id]").forEach(b=>b.addEventListener("click",()=>openEssentialAmount(b.dataset.essentialId)));
  }
  if(foodTab==="favourites"){
    c.innerHTML=db.favourites.length?`<div class="food-list-card">${db.favourites.map(f=>`
    <button type="button" class="essential-row essential-select" data-favourite-id="${f.id}">
-     <div><strong>${esc(f.name)}</strong><small>${round1(f.calories)} kcal · ${round1(f.protein)}g protein ${f.displayBasis?`· ${esc(f.displayBasis)}`:""}</small></div><span>›</span>
-   </button>`).join("")}</div>`:`<div class="card food-empty">No favourites yet.</div>`;
+     <div><strong>${esc(f.name)}</strong><small>${round1(f.calories)} kcal · ${round1(f.protein)}g ${t("proteinWord")} ${f.displayBasis?`· ${esc(f.displayBasis)}`:""}</small></div><span>›</span>
+   </button>`).join("")}</div>`:`<div class="card food-empty">${t("noFavourites")}</div>`;
    c.querySelectorAll("[data-favourite-id]").forEach(b=>b.addEventListener("click",()=>openFavouriteAmount(b.dataset.favouriteId)));
  }
  if(foodTab==="custom"){
    c.innerHTML=`<div class="custom-form">
-   <label>Food name<input id="customName"></label>
-   <div class="two"><label>Calories per item<input id="customCalories" type="number" inputmode="numeric"></label><label>Protein per item (g)<input id="customProtein" type="number" step="0.1" inputmode="decimal"></label></div>
-   <div class="qty-line"><strong>Quantity</strong><div class="qty-ctrl"><button type="button" onclick="changeQty(-1)">−</button><b id="customQty">${qty}</b><button type="button" onclick="changeQty(1)">+</button></div></div>
+   <label>${t("foodName")}<input id="customName"></label>
+   <div class="two"><label>${t("caloriesPerItem")}<input id="customCalories" type="number" inputmode="numeric"></label><label>${t("proteinPerItem")}<input id="customProtein" type="number" step="0.1" inputmode="decimal"></label></div>
+   <div class="qty-line"><strong>${t("quantity")}</strong><div class="qty-ctrl"><button type="button" onclick="changeQty(-1)">−</button><b id="customQty">${qty}</b><button type="button" onclick="changeQty(1)">+</button></div></div>
    <div class="food-total-preview" id="customTotalPreview">0 kcal · 0g protein</div>
-   <label class="check-save"><input id="favCheck" type="checkbox"> Save as favourite</label>
-   <button class="primary" onclick="saveCustom()">Add to diary</button></div>`;
+   <label class="check-save"><input id="favCheck" type="checkbox"> ${t("saveFavourite")}</label>
+   <button class="primary" onclick="saveCustom()">${t("addDiary")}</button></div>`;
    $("#customCalories").addEventListener("input",updateCustomPreview);
    $("#customProtein").addEventListener("input",updateCustomPreview);
    updateCustomPreview();
@@ -374,20 +417,20 @@ function openEssentialAmount(id){
  let amount=f.defaultAmount||f.basis;
  let c=$("#foodTabContent");
  c.innerHTML=`<div class="amount-editor">
-   <button type="button" class="back-mini" id="backEssentials">‹ Essentials</button>
-   <h3>${f.name}</h3>
-   <p class="nutrition-reference">${f.calories} kcal · ${f.protein}g protein <strong>${f.displayBasis}</strong></p>
-   <label>Amount</label>
+   <button type="button" class="back-mini" id="backEssentials">${t("backEssentials")}</button>
+   <h3>${essentialName(f)}</h3>
+   <p class="nutrition-reference">${f.calories} kcal · ${f.protein}g ${t("proteinWord")} <strong>${essentialBasis(f)}</strong></p>
+   <label>${t("amount")}</label>
    <div class="amount-control">
      <button type="button" id="amountMinus">−</button>
-     <div><input id="essentialAmount" type="number" inputmode="decimal" step="${f.step}" value="${amount}"><span>${unit==="item"?(amount==1?"item":"items"):unit}</span></div>
+     <div><input id="essentialAmount" type="number" inputmode="decimal" step="${f.step}" value="${amount}"><span>${unit==="item"?(amount==1?t("item"):t("items")):unit}</span></div>
      <button type="button" id="amountPlus">+</button>
    </div>
-   <div class="food-total-box"><span>Total</span><strong id="essentialTotal"></strong></div>
-   <button class="primary" id="addEssentialToDiary">Add to diary</button>
+   <div class="food-total-box"><span>${t("total")}</span><strong id="essentialTotal"></strong></div>
+   <button class="primary" id="addEssentialToDiary">${t("addDiary")}</button>
  </div>`;
  const input=$("#essentialAmount");
- const update=()=>{let a=Math.max(f.basisUnit==="item"?1:0,+input.value||0),v=calcByAmount(f,a);$("#essentialTotal").textContent=`${v.calories} kcal · ${v.protein}g protein`;let span=input.nextElementSibling;if(span&&f.basisUnit==="item")span.textContent=a==1?"item":"items"};
+ const update=()=>{let a=Math.max(f.basisUnit==="item"?1:0,+input.value||0),v=calcByAmount(f,a);$("#essentialTotal").textContent=`${v.calories} kcal · ${v.protein}g ${t("proteinWord")}`;let span=input.nextElementSibling;if(span&&f.basisUnit==="item")span.textContent=a==1?t("item"):t("items")};
  update();
  $("#backEssentials").onclick=()=>{foodTab="essentials";renderFoodModal()};
  $("#amountMinus").onclick=()=>{input.value=Math.max(f.basisUnit==="item"?1:0,(+input.value||0)-f.step);update()};
@@ -408,21 +451,21 @@ function openFavouriteAmount(id){
  selectedEssentialId=null;
  let c=$("#foodTabContent");
  c.innerHTML=`<div class="amount-editor">
-   <button type="button" class="back-mini" id="backFavs">‹ Favourites</button>
+   <button type="button" class="back-mini" id="backFavs">${t("backFavourites")}</button>
    <h3>${esc(f.name)}</h3>
-   <p class="nutrition-reference">${round1(f.calories)} kcal · ${round1(f.protein)}g protein <strong>${esc(pseudo.displayBasis)}</strong></p>
-   <label>Amount</label>
-   <div class="amount-control"><button type="button" id="amountMinus">−</button><div><input id="essentialAmount" type="number" inputmode="decimal" step="${step}" value="${amount}"><span>${unit==="item"?"item":unit}</span></div><button type="button" id="amountPlus">+</button></div>
-   <div class="food-total-box"><span>Total</span><strong id="essentialTotal"></strong></div>
-   <button class="primary" id="addEssentialToDiary">Add to diary</button>
+   <p class="nutrition-reference">${round1(f.calories)} kcal · ${round1(f.protein)}g ${t("proteinWord")} <strong>${esc(pseudo.displayBasis)}</strong></p>
+   <label>${t("amount")}</label>
+   <div class="amount-control"><button type="button" id="amountMinus">−</button><div><input id="essentialAmount" type="number" inputmode="decimal" step="${step}" value="${amount}"><span>${unit==="item"?t("item"):unit}</span></div><button type="button" id="amountPlus">+</button></div>
+   <div class="food-total-box"><span>${t("total")}</span><strong id="essentialTotal"></strong></div>
+   <button class="primary" id="addEssentialToDiary">${t("addDiary")}</button>
  </div>`;
- let input=$("#essentialAmount"),update=()=>{let a=Math.max(unit==="item"?1:0,+input.value||0),v=calcByAmount(pseudo,a);$("#essentialTotal").textContent=`${v.calories} kcal · ${v.protein}g protein`};update();
+ let input=$("#essentialAmount"),update=()=>{let a=Math.max(unit==="item"?1:0,+input.value||0),v=calcByAmount(pseudo,a);$("#essentialTotal").textContent=`${v.calories} kcal · ${v.protein}g ${t("proteinWord")}`};update();
  $("#backFavs").onclick=()=>{foodTab="favourites";renderFoodModal()};
  $("#amountMinus").onclick=()=>{input.value=Math.max(unit==="item"?1:0,(+input.value||0)-step);update()};
  $("#amountPlus").onclick=()=>{input.value=(+input.value||0)+step;update()};input.addEventListener("input",update);
  $("#addEssentialToDiary").onclick=()=>{let a=Math.max(unit==="item"?1:0,+input.value||0),v=calcByAmount(pseudo,a);mergeFood({id:uid(),date:selectedDate,meal:selectedMeal,name:f.name,calories:v.calories,protein:v.protein,quantity:1,amount:a,amountUnit:unit,basis:basis,sourceType:"favourite",favouriteId:f.id,displayBasis:pseudo.displayBasis});closeModal("foodModal");save()}
 }
-function updateCustomPreview(){let c=+($("#customCalories")?.value||0),p=+($("#customProtein")?.value||0);let el=$("#customTotalPreview");if(el)el.textContent=`${round1(c*qty)} kcal · ${round1(p*qty)}g protein`}
+function updateCustomPreview(){let c=+($("#customCalories")?.value||0),p=+($("#customProtein")?.value||0);let el=$("#customTotalPreview");if(el)el.textContent=`${round1(c*qty)} kcal · ${round1(p*qty)}g ${t("proteinWord")}`}
 function changeQty(n){qty=Math.max(1,qty+n);let q=$("#customQty");if(q)q.textContent=qty;updateCustomPreview()}
 function saveCustom(){
  let name=$("#customName").value.trim();if(!name)return;
@@ -434,14 +477,26 @@ function saveCustom(){
 }
 function openEditFood(id){
  let x=db.foods.find(f=>f.id===id);if(!x)return;
- $("#editFoodId").value=x.id;$("#editFoodName").value=x.name;$("#editFoodMeal").value=x.meal;
+ $("#editFoodId").value=x.id;$("#editFoodName").value=foodDisplayName(x);$("#editFoodMeal").value=x.meal;
  let unit=x.amountUnit||"item",amount=x.amount??(x.quantity||1);
- $("#editFoodAmount").value=amount;$("#editFoodUnit").textContent=unit==="item"?(amount==1?"item":"items"):unit;
+ $("#editFoodAmount").value=amount;$("#editFoodUnit").textContent=unit==="item"?(amount==1?t("item"):t("items")):unit;
  $("#editFoodCalories").value=round1(x.calories||0);$("#editFoodProtein").value=round1(x.protein||0);
- $("#editFoodBasisNote").textContent=x.displayBasis?`Reference: ${x.displayBasis}`:"";
+ let displayBasis=foodDisplayBasis(x);$("#editFoodBasisNote").textContent=displayBasis?`${t("reference")}: ${displayBasis}`:"";
  openModal("editFoodModal")
 }
 function editFood(id){openEditFood(id)}
+function openMeasurementForm(id=null){
+ let x=id?db.measurements.find(m=>m.id===id):null;
+ $("#measureId").value=x?.id||"";
+ $("#measureDate").value=x?.date||todayISO();
+ $("#measureWeight").value=x?.weight??"";
+ $("#measureWaist").value=x?.waist??"";
+ $("#measurementModalTitle").textContent=x?t("editMeasurement"):t("measurement");
+ $("#saveMeasurement").textContent=x?t("saveChanges"):t("saveMeasurement");
+ $("#deleteMeasurement").hidden=!x;
+ openModal("measurementModal")
+}
+function openMeasurementEdit(id){openMeasurementForm(id)}
 function download(name,text,type="application/json"){let a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
 
 $$("nav button").forEach(b=>b.onclick=()=>showPage(b.dataset.page));$$("[data-close]").forEach(b=>b.onclick=()=>closeModal(b.dataset.close));
@@ -453,15 +508,21 @@ $$("[data-period]").forEach(b=>b.onclick=()=>{
  $("#customRangeControls").hidden=period!=="custom";renderProgress()
 });
 $("#customStart").value=customStart;$("#customEnd").value=customEnd;
-$("#applyCustomRange").onclick=()=>{let s=$("#customStart").value,e=$("#customEnd").value;if(!s||!e||s>e){alert(lang()==="fr"?"Choisissez une plage de dates valide.":"Choose a valid date range.");return}customStart=s;customEnd=e;period="custom";renderProgress()};
+$("#applyCustomRange").onclick=()=>{let s=$("#customStart").value,e=$("#customEnd").value;if(!s||!e||s>e){alert(t("invalidRange"));return}customStart=s;customEnd=e;period="custom";renderProgress()};
 $$("[data-filter]").forEach(b=>b.onclick=()=>{badgeFilter=b.dataset.filter;$$("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));renderBadges()});
 $$("[data-foodtab]").forEach(b=>b.onclick=()=>{foodTab=b.dataset.foodtab;renderFoodModal()});
-$("#addMeasurement").onclick=()=>{$("#measureDate").value=todayISO();$("#measureWeight").value="";$("#measureWaist").value="";openModal("measurementModal")};$("#saveMeasurement").onclick=()=>{db.measurements.push({id:uid(),date:$("#measureDate").value||todayISO(),weight:+$("#measureWeight").value||null,waist:+$("#measureWaist").value||null});closeModal("measurementModal");save()};
+$$(".add-measurement-btn").forEach(b=>b.onclick=()=>openMeasurementForm());
+$("#saveMeasurement").onclick=()=>{
+ let id=$("#measureId").value,payload={date:$("#measureDate").value||todayISO(),weight:+$("#measureWeight").value||null,waist:+$("#measureWaist").value||null};
+ if(id){let x=db.measurements.find(m=>m.id===id);if(x)Object.assign(x,payload)}else db.measurements.push({id:uid(),...payload});
+ closeModal("measurementModal");save()
+};
+$("#deleteMeasurement").onclick=()=>{let id=$("#measureId").value;if(id&&confirm(t("deleteMeasurementConfirm"))){db.measurements=db.measurements.filter(m=>m.id!==id);closeModal("measurementModal");save()}};
 $("#settingCalories").onchange=()=>{db.settings.calories=+$("#settingCalories").value||2000;save()};$("#settingProtein").onchange=()=>{db.settings.protein=+$("#settingProtein").value||160;save()};$("#settingWeightGoal").onchange=()=>{db.settings.weightGoal=+$("#settingWeightGoal").value||null;save()};
 $("#exportBackup").onclick=()=>download(`step-by-step-backup-${todayISO()}.json`,JSON.stringify(db,null,2));
-$("#restoreBackup").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!x.settings||!Array.isArray(x.foods))throw 0;if(confirm("Replace the data on this device with this backup?")){db=normalizeDb(x);save()}}catch{alert("Invalid backup.")}e.target.value=""};
+$("#restoreBackup").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!x.settings||!Array.isArray(x.foods))throw 0;if(confirm(t("replaceBackup"))){db=normalizeDb(x);save()}}catch{alert(t("invalidBackup"))}e.target.value=""};
 $("#exportCsv").onclick=()=>{let rows=[["date","meal","food","quantity","calories_per_item","protein_g_per_item"],...db.foods.map(x=>[x.date,x.meal,x.name,x.quantity,x.calories,x.protein])];download(`step-by-step-food-${todayISO()}.csv`,rows.map(r=>r.map(v=>`"${String(v??"").replaceAll('"','""')}"`).join(",")).join("\n"),"text/csv")};
-$("#deleteAll").onclick=()=>{if(confirm("Delete ALL Step by Step! data on this device?")&&confirm("Final confirmation: delete everything?")){localStorage.removeItem(KEY);db=fresh();selectedDate=todayISO();save()}};
+$("#deleteAll").onclick=()=>{if(confirm(t("deleteAll1"))&&confirm(t("deleteAll2"))){localStorage.removeItem(KEY);db=fresh();selectedDate=todayISO();save()}};
 
 $("#editFoodAmount").addEventListener("input",()=>{
  let id=$("#editFoodId").value,x=db.foods.find(f=>f.id===id);if(!x)return;
@@ -470,7 +531,7 @@ $("#editFoodAmount").addEventListener("input",()=>{
    $("#editFoodCalories").value=round1((+x.calories||0)*(newAmount/oldAmount));
    $("#editFoodProtein").value=round1((+x.protein||0)*(newAmount/oldAmount));
  }
- $("#editFoodUnit").textContent=(x.amountUnit||"item")==="item"?(newAmount==1?"item":"items"):(x.amountUnit||"");
+ $("#editFoodUnit").textContent=(x.amountUnit||"item")==="item"?(newAmount==1?t("item"):t("items")):(x.amountUnit||"");
 });
 $("#saveFoodEdit").onclick=()=>{
  let id=$("#editFoodId").value,x=db.foods.find(f=>f.id===id);if(!x)return;
@@ -480,12 +541,12 @@ $("#saveFoodEdit").onclick=()=>{
  closeModal("editFoodModal");save()
 };
 $("#deleteFoodEdit").onclick=()=>{
- let id=$("#editFoodId").value;if(confirm(lang()==="fr"?"Supprimer cet aliment du journal ?":"Delete this food from the diary?")){
+ let id=$("#editFoodId").value;if(confirm(t("deleteFoodConfirm"))){
    db.foods=db.foods.filter(f=>f.id!==id);closeModal("editFoodModal");save()
  }
 };
 
 function revealApp(){let splash=$("#splash"),appEl=$("#app");if(appEl)appEl.classList.remove("hidden");if(splash){splash.classList.add("hide");setTimeout(()=>splash.remove(),400)}}
-function boot(){try{render()}catch(err){console.error("Step by Step boot error",err);let box=document.createElement("div");box.className="boot-error";box.innerHTML="<strong>Step by Step! had trouble loading.</strong><br>Please refresh the page. Your saved data has not been deleted.";document.body.appendChild(box)}finally{setTimeout(revealApp,900)}}
+function boot(){try{render()}catch(err){console.error("Step by Step boot error",err);let box=document.createElement("div");box.className="boot-error";box.innerHTML=lang()==="fr"?"<strong>Step by Step! a rencontré un problème de chargement.</strong><br>Actualisez la page. Vos données enregistrées n’ont pas été supprimées.":"<strong>Step by Step! had trouble loading.</strong><br>Please refresh the page. Your saved data has not been deleted.";document.body.appendChild(box)}finally{setTimeout(revealApp,900)}}
 if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js").catch(console.warn);
 boot();
