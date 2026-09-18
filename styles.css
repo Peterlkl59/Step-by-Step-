@@ -560,3 +560,41 @@ nav button.active span img{filter:none}
  .custom-range-controls{grid-template-columns:1fr!important}
  .custom-range-controls .outline-blue{grid-column:1!important}
 }
+
+/* V5.3 date-range spacing hotfix */
+.custom-range-controls{
+  grid-template-columns:calc(50% - 16px) calc(50% - 16px)!important;
+  column-gap:32px!important;
+  row-gap:12px!important;
+  padding:14px 16px!important;
+}
+.custom-range-controls label{
+  width:100%!important;
+  max-width:none!important;
+}
+.custom-range-controls input{
+  width:100%!important;
+  max-width:100%!important;
+  height:38px!important;
+  padding:0 8px!important;
+  font-size:11px!important;
+  box-sizing:border-box!important;
+}
+.custom-range-controls .outline-blue{
+  grid-column:1/-1!important;
+  width:100%!important;
+  height:40px!important;
+  margin-top:2px!important;
+}
+@media(max-width:390px){
+  .custom-range-controls{
+    grid-template-columns:calc(50% - 12px) calc(50% - 12px)!important;
+    column-gap:24px!important;
+    padding:12px!important;
+  }
+  .custom-range-controls input{
+    height:36px!important;
+    font-size:10px!important;
+    padding:0 5px!important;
+  }
+}
