@@ -598,3 +598,54 @@ nav button.active span img{filter:none}
     padding:0 5px!important;
   }
 }
+
+/* V5.3 custom date controls - centered compact fields */
+.custom-range-controls{
+  grid-template-columns:minmax(0,240px) minmax(0,240px)!important;
+  justify-content:center!important;
+  column-gap:24px!important;
+  row-gap:12px!important;
+  padding:14px 22px!important;
+  box-sizing:border-box!important;
+}
+.custom-range-controls label{
+  width:100%!important;
+  max-width:240px!important;
+  min-width:0!important;
+}
+.custom-range-controls input{
+  width:100%!important;
+  max-width:240px!important;
+  min-width:0!important;
+  height:36px!important;
+  padding:0 8px!important;
+  font-size:11px!important;
+  box-sizing:border-box!important;
+}
+.custom-range-controls .outline-blue{
+  grid-column:1/-1!important;
+  justify-self:stretch!important;
+  width:100%!important;
+  max-width:504px!important;
+  height:40px!important;
+  margin:2px auto 0!important;
+}
+@media(max-width:390px){
+  .custom-range-controls{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    column-gap:20px!important;
+    padding:12px 20px!important;
+  }
+  .custom-range-controls label,
+  .custom-range-controls input{
+    max-width:none!important;
+  }
+}
+@media(max-width:330px){
+  .custom-range-controls{
+    grid-template-columns:1fr!important;
+  }
+  .custom-range-controls .outline-blue{
+    grid-column:1!important;
+  }
+}
