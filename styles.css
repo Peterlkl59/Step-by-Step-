@@ -503,3 +503,24 @@ nav button.active span img{filter:none}
 .badge strong{font-size:11px!important;line-height:1.2!important;margin-top:7px!important}
 .badge-description{font-size:9.5px!important;min-height:36px!important}
 @media(max-width:390px){.badge-grid{gap:12px 8px!important}.badge strong{font-size:10px!important}.badge-description{font-size:9px!important}}
+
+
+/* V5.2 measurement, badge, custom range and splash refinements */
+#splash{background:#d9f1fb!important;isolation:isolate}
+#splash:before{content:"";position:absolute;inset:-5%;background:url("splash-screen.png") center/cover no-repeat;filter:blur(20px);transform:scale(1.08);opacity:.48;z-index:-2}
+#splash:after{content:"";position:absolute;inset:0;background:rgba(232,247,253,.22);z-index:-1}
+#splash .splash-art{width:88%!important;height:88%!important;object-fit:contain!important;object-position:center!important;margin:0!important;max-width:none!important}
+.custom-range-controls{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto!important;gap:7px!important;padding:10px!important}
+.custom-range-controls label{min-width:0!important}.custom-range-controls input{width:100%!important;min-width:0!important;padding:9px 6px!important;font-size:13px!important}
+.custom-range-controls .outline-blue{padding:9px 10px!important;white-space:nowrap!important}
+.measurement-chart{min-height:250px!important;height:250px!important}
+.measurement-chart .bar-item{grid-template-rows:24px 154px 58px!important;height:238px!important;background:transparent;border:0;padding:0;min-width:72px;cursor:pointer}
+.measurement-chart .bar-value{grid-row:1!important}.measurement-chart .bar-rail{grid-row:2!important;height:154px!important}.measurement-chart .bar-label{grid-row:3!important;padding-top:28px!important}
+.measurement-chart:after{bottom:57px!important}.measurement-entry:active{transform:scale(.98)}
+.chart-edit-hint{text-align:center;color:var(--muted);font-size:10px;font-weight:750;margin:6px 0 10px}
+.empty-chart + .chart-edit-hint{display:none}
+.badge.locked .badge-art{filter:none!important;opacity:1!important;background:#f2f4f7!important;border-color:#d8dee7!important}
+.badge.locked .badge-art img{filter:none!important;opacity:1!important}
+.badge.locked strong{color:#566476!important}.badge.locked .badge-description{color:#7d8998!important}.badge.locked small{color:#8e99a7!important}
+.badge-description{min-height:48px!important;line-height:1.25!important}
+@media(max-width:390px){.custom-range-controls{grid-template-columns:1fr 1fr!important}.custom-range-controls .outline-blue{grid-column:1/-1;width:100%}}

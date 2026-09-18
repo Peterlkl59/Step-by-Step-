@@ -98,3 +98,18 @@ Built directly from the locked V4.8 working baseline.
 - Existing local-storage key and data model retained; restore normalizes older backups safely.
 - Service worker changed to network-first with skipWaiting/clients.claim to reduce stale GitHub Pages caching.
 - Boot process always exits the splash screen and shows a visible error card instead of hanging indefinitely if a runtime issue occurs.
+
+
+## V5.2
+- Full EN/FR UI parity audit, including food flows, progress controls, badge copy, confirmations and empty states.
+- Home introduction updated to the approved Saucisse copy in English and French.
+- Home mood logic is supportive: missing data is curious, low activity can be sleepy, sad is reserved for exceeding calorie target with a comforting message.
+- Progress now uses Past 7 days (including today), Monthly and Custom only.
+- Custom date inputs are narrower/mobile-safe.
+- Average calorie summary now uses net-calories.png and is labelled Average net calories.
+- Weight and waist empty states share the curious measurement illustration.
+- Both weight and waist have Add measurement buttons.
+- Measurement bars are tappable to edit or delete entries.
+- Weight and waist colours: decrease=green, increase=red, unchanged/first=blue.
+- Locked badges use badge-locked.png, while name, exact requirement and progress remain visible.
+- Splash artwork is visually zoomed out with a blended backdrop so edges are not obvious.
